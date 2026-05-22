@@ -70,10 +70,10 @@ quoridor/
 │   ├── renderer.py       # Draws board, pawns, walls, sidebar, UI
 │   └── input_handler.py  # Mouse and keyboard input processing
 ├── utils/
-│   ├── __init__.py
-│   ├── pathfinding.py    # BFS shortest path and valid move generation
-│   └── history.py        # Undo/redo stack engine
-└── assets/               # Screenshots and media
+    ├── __init__.py
+    ├── pathfinding.py    # BFS shortest path and valid move generation
+    └── history.py        # Undo/redo stack engine
+             # Screenshots and media
 ```
 
 ---
