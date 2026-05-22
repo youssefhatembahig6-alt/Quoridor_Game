@@ -1,0 +1,49 @@
+# Board
+BOARD_SIZE = 9
+CELL_SIZE = 64
+WALL_THICKNESS = 8
+WALL_LENGTH = CELL_SIZE - 4
+BOARD_OFFSET_X = 40
+BOARD_OFFSET_Y = 100
+
+# Window
+SIDEBAR_WIDTH = 260
+WINDOW_WIDTH = BOARD_SIZE * CELL_SIZE + BOARD_OFFSET_X * 2 + SIDEBAR_WIDTH
+WINDOW_HEIGHT = BOARD_SIZE * CELL_SIZE + BOARD_OFFSET_Y + 60
+FPS = 60
+
+# Colors
+C_BG         = (18, 18, 30)
+C_BOARD_BG   = (30, 30, 50)
+C_CELL       = (42, 42, 68)
+C_CELL_HOVER = (60, 80, 120)
+C_GRID       = (55, 55, 85)
+C_VALID_MOVE = (80, 200, 120)
+C_WALL_SLOT  = (55, 55, 85)
+C_WALL_HOVER = (220, 160, 60)
+C_WALL_P1    = (220, 80, 80)
+C_WALL_P2    = (80, 140, 220)
+C_WALL_PLACED= (180, 120, 40)
+C_P1         = (230, 80, 80)
+C_P2         = (80, 160, 240)
+C_P1_BORDER  = (255, 120, 120)
+C_P2_BORDER  = (120, 200, 255)
+C_TEXT       = (220, 220, 230)
+C_TEXT_DIM   = (130, 130, 160)
+C_ACCENT     = (255, 200, 60)
+C_SIDEBAR_BG = (22, 22, 38)
+C_BTN        = (50, 50, 80)
+C_BTN_HOVER  = (70, 70, 110)
+C_BTN_ACTIVE = (90, 60, 130)
+C_WIN_OVERLAY= (0, 0, 0, 180)
+
+# Players
+PLAYER_RADIUS = 22
+P1_START = (0, 4)   # row, col  (P1 starts at top, goal = row 8)
+P2_START = (8, 4)   # row, col  (P2 starts at bottom, goal = row 0)
+P1_GOAL_ROW = 8
+P2_GOAL_ROW = 0
+WALLS_PER_PLAYER = 10
+
+# AI
+AI_THINK_DELAY = 400   # ms before AI moves (feels natural)
