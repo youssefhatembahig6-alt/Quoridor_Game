@@ -6,8 +6,8 @@
 
 ## 📸 Screenshots
 
-| Menu Screen | Gameplay | AI Match |
-|-------------|----------|----------|
+| Menu Screen | Gameplay |
+|-------------|----------|
 | ![Menu](assets/screenshot_menu.png) | ![Game](assets/screenshot_game.png) |
 
 ---
