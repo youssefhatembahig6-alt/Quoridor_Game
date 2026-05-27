@@ -181,17 +181,7 @@ score = opponent_distance_to_goal − my_distance_to_goal
 
 A higher score means the AI is closer to winning relative to the opponent. Alpha-beta pruning cuts branches that cannot affect the final decision, keeping search fast enough for real-time play.
 
----
 
-## 👥 Team
-
-| Member | Role |
-|--------|------|
-| Member 1 | Core Engine — Board, Player, Rules, History |
-| Member 2 | State & Pathfinding — BFS, Game State Snapshots |
-| Member 3 | AI Opponents — Easy, Medium, Hard |
-| Member 4 | GUI — Renderer, Input Handler |
-| Member 5 | Integration, Main Loop, Documentation |
 
 ---
 
