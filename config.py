@@ -12,38 +12,61 @@ WINDOW_WIDTH = BOARD_SIZE * CELL_SIZE + BOARD_OFFSET_X * 2 + SIDEBAR_WIDTH
 WINDOW_HEIGHT = BOARD_SIZE * CELL_SIZE + BOARD_OFFSET_Y + 60
 FPS = 60
 
-# Colors
-C_BG         = (18, 18, 30)
-C_BOARD_BG   = (30, 30, 50)
-C_CELL       = (42, 42, 68)
-C_CELL_HOVER = (60, 80, 120)
-C_GRID       = (55, 55, 85)
-C_VALID_MOVE = (80, 200, 120)
-C_WALL_SLOT  = (55, 55, 85)
-C_WALL_HOVER = (220, 160, 60)
-C_WALL_P1    = (220, 80, 80)
-C_WALL_P2    = (80, 140, 220)
-C_WALL_PLACED= (180, 120, 40)
-C_P1         = (230, 80, 80)
-C_P2         = (80, 160, 240)
-C_P1_BORDER  = (255, 120, 120)
-C_P2_BORDER  = (120, 200, 255)
-C_TEXT       = (220, 220, 230)
-C_TEXT_DIM   = (130, 130, 160)
-C_ACCENT     = (255, 200, 60)
-C_SIDEBAR_BG = (22, 22, 38)
-C_BTN        = (50, 50, 80)
-C_BTN_HOVER  = (70, 70, 110)
-C_BTN_ACTIVE = (90, 60, 130)
-C_WIN_OVERLAY= (0, 0, 0, 180)
+# ── Light theme colors ────────────────────────────────────────────────────────
+# Background
+C_BG         = (242, 238, 229)   # warm cream page background
+C_BOARD_BG   = (255, 252, 245)   # near-white board panel
+
+# Cells
+C_CELL       = (250, 247, 240)   # light wood-cream cell
+C_CELL_HOVER = (210, 230, 200)   # soft green hover
+C_GRID       = (195, 185, 165)   # warm tan grid lines
+
+# Valid move highlight
+C_VALID_MOVE = (130, 195, 100)   # muted green
+
+# Wall slots (shown as subtle dots in wall mode)
+C_WALL_SLOT  = (195, 185, 165)   # same as grid — subtle
+C_WALL_HOVER = (200, 130, 40)    # amber preview
+
+# Placed walls
+C_WALL_PLACED= (130, 85,  35)    # dark wood-brown
+
+# Wall ghost per player
+C_WALL_P1    = (205, 70,  60)    # red tint for P1 ghost
+C_WALL_P2    = (55,  110, 200)   # blue tint for P2 ghost
+
+# Pawns
+C_P1         = (210, 65,  55)    # red pawn fill
+C_P2         = (50,  105, 195)   # blue pawn fill
+C_P1_BORDER  = (240, 130, 120)   # lighter red ring
+C_P2_BORDER  = (120, 175, 240)   # lighter blue ring
+
+# Text
+C_TEXT       = (40,  32,  20)    # near-black warm
+C_TEXT_DIM   = (130, 118, 95)    # muted tan
+
+# Accent (headings, highlights)
+C_ACCENT     = (160, 100, 25)    # dark amber / warm gold
+
+# Sidebar
+C_SIDEBAR_BG = (235, 230, 218)   # slightly darker than board bg
+
+# Buttons
+C_BTN        = (215, 208, 192)   # light tan button
+C_BTN_HOVER  = (195, 188, 170)   # slightly darker on hover
+C_BTN_ACTIVE = (180, 135, 70)    # warm amber active state
+
+# Win overlay
+C_WIN_OVERLAY= (0, 0, 0, 160)
 
 # Players
 PLAYER_RADIUS = 22
-P1_START = (0, 4)   # row, col  (P1 starts at top, goal = row 8)
-P2_START = (8, 4)   # row, col  (P2 starts at bottom, goal = row 0)
+P1_START = (0, 4)
+P2_START = (8, 4)
 P1_GOAL_ROW = 8
 P2_GOAL_ROW = 0
 WALLS_PER_PLAYER = 10
 
 # AI
-AI_THINK_DELAY = 400   # ms before AI moves (feels natural)
+AI_THINK_DELAY = 400
