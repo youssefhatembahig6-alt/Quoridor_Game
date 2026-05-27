@@ -1,6 +1,6 @@
 # 🏆 Quoridor — Python Pygame Implementation
 
-> A complete implementation of the award-winning abstract strategy board game **Quoridor**, built with Python and Pygame. Features a fully playable GUI, intelligent AI opponents at three difficulty levels, and undo/redo functionality.
+> A complete implementation of the award-winning abstract strategy board game **Quoridor**, built with Python and Pygame. Features a fully playable GUI with a warm light theme, intelligent AI opponents at three difficulty levels, clickable sidebar controls, and undo/redo functionality.
 
 ---
 
@@ -8,7 +8,7 @@
 
 | Menu Screen | Gameplay | AI Match |
 |-------------|----------|----------|
-| ![Menu](assets/screenshot_menu.png) | ![Game](assets/screenshot_game.png) | ![AI](assets/screenshot_ai.png) |
+| ![Menu](assets/screenshot_menu.png) | ![Game](assets/screenshot_game.png) |
 
 ---
 
@@ -19,7 +19,7 @@ Quoridor is a strategy board game invented by **Mirko Marchesi** in 1997, winner
 - **Move** their pawn one square orthogonally
 - **Place a wall** to block the opponent's path
 
-The catch — walls cannot completely trap a player. There must always be at least one valid path to the goal. This creates deep strategic tension between racing forward and blocking your opponent.
+Walls cannot completely trap a player — there must always be at least one valid path to the goal. This creates deep strategic tension between racing forward and blocking your opponent.
 
 ---
 
@@ -28,13 +28,15 @@ The catch — walls cannot completely trap a player. There must always be at lea
 - ✅ Complete Quoridor ruleset for 2 players
 - ✅ Human vs Human local multiplayer
 - ✅ Human vs AI with 3 difficulty levels
-- ✅ Valid move highlighting
-- ✅ Wall placement preview on hover
-- ✅ Undo / Redo (unlimited)
-- ✅ Turn indicator and wall count display
+- ✅ Valid move highlighting (green cells shown on your turn)
+- ✅ Wall slot indicators — dashed lines show all placeable positions
+- ✅ Wall placement preview on hover (coloured ghost wall)
+- ✅ Clickable sidebar buttons for all actions (no keyboard required)
+- ✅ Undo / Redo (unlimited, Ctrl+Z / Ctrl+Y)
+- ✅ Turn indicator and wall count display with progress bars
 - ✅ Win screen with game over overlay
-- ✅ Game reset and return to menu
-- ✅ Clean dark-themed GUI
+- ✅ Game reset and return to menu (keyboard and button)
+- ✅ Warm light-themed GUI (cream, wood tones)
 
 ---
 
@@ -44,36 +46,46 @@ The catch — walls cannot completely trap a player. There must always be at lea
 |-------|-----------|-------------|
 | **Easy** | Greedy | Moves toward goal each turn, places random walls occasionally |
 | **Medium** | BFS Heuristic | Uses pathfinding to pick the best move, places walls to slow opponent |
-| **Hard** | Minimax + Alpha-Beta Pruning | Thinks 3 moves ahead, evaluates all possible outcomes, plays optimally |
+| **Hard** | Minimax + Alpha-Beta Pruning | Thinks 4 moves ahead, evaluates all possible outcomes, plays optimally |
 
 ---
 
 ## 🗂️ Project Structure
 
 ```
-quoridor/
-├── main.py               # Entry point — menu + game loop
-├── config.py             # All constants and colors
+Quoridor_Game/
+│
+├── main.py
+├── config.py
+├── README.md
+├── .gitignore
+│
+├── assets/
+│   ├── screenshot_menu.png
+│   └── screenshot_game.png
+│
 ├── game/
-│   ├── __init__.py       # Game class — top level state
-│   ├── board.py          # Wall storage and movement blocking
-│   ├── player.py         # Player state and goal tracking
-│   ├── rules.py          # Move validation and rule enforcement
-│   └── game_state.py     # Snapshot system for undo/redo
+│   ├── __init__.py
+│   ├── board.py
+│   ├── player.py
+│   ├── rules.py
+│   └── game_state.py
+│
 ├── ai/
-│   ├── __init__.py       # make_ai() factory function
-│   ├── easy_lvl.py       # Easy AI — greedy movement
-│   ├── medium_lvl.py     # Medium AI — BFS guided
-│   └── hard_lvl.py       # Hard AI — Minimax with alpha-beta
+│   ├── __init__.py
+│   ├── easy_lvl.py
+│   ├── medium_lvl.py
+│   └── hard_lvl.py
+│
 ├── gui/
 │   ├── __init__.py
-│   ├── renderer.py       # Draws board, pawns, walls, sidebar, UI
-│   └── input_handler.py  # Mouse and keyboard input processing
-├── utils/
+│   ├── renderer.py
+│   └── input_handler.py
+│
+└── utils/
     ├── __init__.py
-    ├── pathfinding.py    # BFS shortest path and valid move generation
-    └── history.py        # Undo/redo stack engine
-             # Screenshots and media
+    ├── pathfinding.py
+    └── history.py
 ```
 
 ---
@@ -104,26 +116,29 @@ python main.py
 
 ## 🕹️ Controls
 
+All actions are available as **clickable sidebar buttons** or keyboard shortcuts.
+
 | Input | Action |
 |-------|--------|
-| `Left Click` on cell | Move pawn to that cell |
-| `Left Click` on wall slot | Place wall |
-| `Right Click` | Rotate wall orientation |
-| `M` | Switch to Move mode |
-| `W` | Switch to Wall mode |
-| `R` | Rotate wall orientation |
+| `Left Click` on green cell | Move pawn |
+| `W` button / `W` key | Switch to Wall placement mode |
+| `Left Click` on wall slot | Place wall (must be in Wall mode) |
+| `R` button / `R` key | Rotate wall orientation (H ↔ V) |
+| `M` button / `M` key | Switch back to Move mode |
 | `Ctrl + Z` | Undo last move |
 | `Ctrl + Y` | Redo last move |
-| `F5` | Reset / New game |
-| `Escape` | Return to main menu |
+| `F5` button / `F5` key | Reset / New game |
+| `Esc` button / `Escape` key | Return to main menu |
+
+> **Tip:** Green cells show valid pawn moves. In Wall mode, dashed lines appear on the board showing every slot where a wall can legally be placed. Hover over a slot to preview the wall before clicking.
 
 ---
 
 ## 📐 How to Play
 
 1. **Launch the game** and select a mode from the menu
-2. **Player 1 (Red)** starts at the top center, goal is the bottom row
-3. **Player 2 (Blue)** starts at the bottom center, goal is the top row
+2. **Player 1 (Red)** starts at the top center — goal is the bottom row
+3. **Player 2 (Blue)** starts at the bottom center — goal is the top row
 4. Each turn — either **move your pawn** or **place a wall**
 5. Pawns move one square orthogonally (up, down, left, right)
 6. If your pawn is adjacent to the opponent, you can **jump over** them
@@ -136,20 +151,35 @@ python main.py
 
 ## 🧠 Technical Details
 
+### Architecture
+
+The project follows a clean separation of concerns:
+
+- **`Game`** — passive data container (board, players, turn, winner). Never contains logic.
+- **`Rules`** — all move validation and game state transitions. Calls `History` before each move.
+- **`Renderer`** — pure drawing. After each `draw_frame()` call it populates `sidebar_rects`, a dict of clickable button rectangles that `InputHandler` reads.
+- **`InputHandler`** — translates raw pygame events into `Rules` calls. Checks sidebar buttons on every click before checking the board, so UI controls are always responsive.
+
 ### Pathfinding
-Wall legality is enforced using **Breadth-First Search (BFS)**. After every attempted wall placement, BFS checks that both players still have at least one valid path to their goal row. If either player is blocked, the wall placement is rejected.
+
+Wall legality is enforced using **Breadth-First Search (BFS)**. After every attempted wall placement, BFS checks that both players still have at least one valid path to their goal row. If either player is blocked, the wall is rejected.
+
+`bfs_distance` and `bfs_next_step` power the AI evaluation function and the Easy/Medium AI movement respectively.
 
 ### Undo / Redo
-Every move (pawn or wall) pushes a full **game state snapshot** onto an undo stack before applying the move. Undoing pops the snapshot and restores the game. Redoing re-applies it. The redo stack clears whenever a new move is made.
+
+Every move (pawn or wall) pushes a full **`GameState` snapshot** onto an undo stack before applying the move. The snapshot deep-copies both players and the board so future mutations never corrupt saved states. Undoing pops the snapshot and restores the game; redoing re-applies it. The redo stack clears whenever a new move is made.
 
 ### Minimax AI
-The Hard AI uses **Minimax with Alpha-Beta Pruning** at depth 3. The evaluation function is:
+
+The Hard AI uses **Minimax with Alpha-Beta Pruning** at depth 4. The evaluation function is:
 
 ```
-score = opponent_distance_to_goal - my_distance_to_goal
+score = opponent_distance_to_goal − my_distance_to_goal
+      + (my_walls_left − opponent_walls_left) × 0.5
 ```
 
-A higher score means the AI is closer to winning relative to the opponent. Alpha-beta pruning cuts branches that cannot affect the final decision, making the search fast enough for real-time play.
+A higher score means the AI is closer to winning relative to the opponent. Alpha-beta pruning cuts branches that cannot affect the final decision, keeping search fast enough for real-time play.
 
 ---
 
@@ -173,6 +203,7 @@ The video covers:
 - Game setup and UI overview
 - Human vs Human gameplay
 - Human vs Easy, Medium, and Hard AI
+- Wall placement demonstration
 - Undo/Redo demonstration
 
 ---
