@@ -62,7 +62,8 @@ Quoridor_Game/
 │
 ├── assets/
 │   ├── screenshot_menu.png
-│   └── screenshot_game.png
+    ├── screenshot_game.png
+│   └── screenshot_win.png
 │
 ├── game/
 │   ├── __init__.py
@@ -98,7 +99,7 @@ Quoridor_Game/
 
 ### Step 1 — Clone the repository
 ```bash
-git clone https://github.com/yourusername/quoridor.git
+git clone https://github.com/youssefhatembahig6-alt/Quoridor_Game
 cd quoridor
 ```
 
@@ -187,7 +188,7 @@ A higher score means the AI is closer to winning relative to the opponent. Alpha
 
 ## 🎥 Demo Video
 
-▶️ [Watch the demo video here](https://youtu.be/your-video-link)
+▶️ [Watch the demo video here](https://drive.google.com/drive/folders/1OwhzvfvSyQ4B7L3vz9xh-sL7ZUFBeFbu)
 
 The video covers:
 - Game setup and UI overview
