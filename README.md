@@ -6,9 +6,9 @@
 
 ## 📸 Screenshots
 
-| Menu Screen | Gameplay |
-|-------------|----------|
-| ![Menu](assets/screenshot_menu.png) | ![Game](assets/screenshot_game.png) |
+| Menu Screen | Gameplay | Win Screen |
+|-------------|----------|------------|
+| ![Menu](assets/screenshot_menu.png) | ![Game](assets/screenshot_game.png) | ![Win Screen](assets/screenshot_win.png) |
 
 ---
 
